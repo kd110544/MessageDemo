@@ -1,12 +1,17 @@
 package com.example.messagedemo;
 
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +20,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.snackbar.Snackbar;
+
+import java.nio.channels.Channel;
 
 public class ActMain extends AppCompatActivity {
 
@@ -94,6 +101,29 @@ public class ActMain extends AppCompatActivity {
             return;
         }
     };
+    private View.OnClickListener btnNotification_Click = new View.OnClickListener() {
+        @RequiresApi(api = Build.VERSION_CODES.O)
+        @Override
+        public void onClick(View v) {
+            NotificationChannel channel = new NotificationChannel(
+              "myid",
+              "Channel Name",
+                    NotificationManager.IMPORTANCE_HIGH);
+            Notification message = new Notification.Builder(ActMain.this)
+                    .setContentTitle("您有三封簡訊未讀")
+                    .setContentText("訊息來自Carrie")
+                    .setSmallIcon(android.R.drawable.stat_sys_speakerphone)
+                    .setChannelId("myid")
+                    .build();
+
+            NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            manager.createNotificationChannel(channel);
+            manager.notify(0,message);
+
+
+        }
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +145,10 @@ public class ActMain extends AppCompatActivity {
         btnList.setOnClickListener(btnList_click);
         lblTitle=findViewById(R.id.lblTitle);
 
+        btnNotification=findViewById(R.id.btnNotification);
+        btnNotification.setOnClickListener(btnNotification_Click);
+
+
 
 
     }
@@ -122,6 +156,7 @@ public class ActMain extends AppCompatActivity {
     Button btnToast;
     Button btnSnackBar;
     Button btnList;
+    Button btnNotification;
     TextView lblTitle;
 
 

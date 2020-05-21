@@ -36,5 +36,11 @@
         android:textSize="35dp"
         android:id="@+id/btnSnackBar"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOTIFICATION"
+        android:textSize="35dp"
+        android:id="@+id/btnNotification"/>
 
 </LinearLayout>
