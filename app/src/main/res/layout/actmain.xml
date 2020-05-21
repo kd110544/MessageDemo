@@ -15,25 +15,26 @@
         android:text="Save Data"
         android:textSize="35dp"
         android:id="@+id/btnNew"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send Message"
-        android:textSize="35dp"
-        android:id="@+id/btnSend"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Receive"
-        android:textSize="35dp"
-        android:id="@+id/btnReceive"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="List"
-        android:textSize="35dp"
-        android:id="@+id/btnList"/>
 
+    <Button
+        android:id="@+id/btnList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List Data"
+        android:textSize="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Toast"
+        android:textSize="35dp"
+        android:id="@+id/btnToast"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SNAKBAR"
+        android:textSize="35dp"
+        android:id="@+id/btnSnackBar"/>
 
 
 </LinearLayout>
